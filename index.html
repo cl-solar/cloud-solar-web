@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,7 +9,6 @@
       content="Cloud Solar makes renewable energy simple, modern, and affordable for homes and businesses."
     />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -46,10 +45,25 @@
         scroll-behavior: smooth;
       }
 
+      select:required:invalid {
+        color: rgba(148, 163, 184, 0.9);
+      }
+
+      /* 2. Ensure the actual options are bright white and have a dark background */
+      option {
+        color: #f9fafb;
+        background: #1f1f22; /* Matches your dark theme */
+      }
+
       body {
-        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
           sans-serif;
-        background: radial-gradient(
+        background:
+          radial-gradient(
             circle at 10% 0%,
             rgba(255, 255, 255, 0.9) 0,
             transparent 55%
@@ -90,10 +104,8 @@
       }
 
       .logo-pill {
-        padding: 0.45rem 0.85rem;
-        background: #ffffff;
+        padding: 1.85rem 1.85rem;
         border-radius: 999px;
-        border: 1px solid rgba(0, 0, 0, 0.06);
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
@@ -126,7 +138,9 @@
       .nav-links a {
         padding: 0.25rem 0.6rem;
         border-radius: 999px;
-        transition: background 0.15s ease, color 0.15s ease;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
       }
 
       .nav-links a:hover {
@@ -246,8 +260,11 @@
         align-items: center;
         justify-content: center;
         gap: 0.4rem;
-        transition: transform 0.15s ease, box-shadow 0.15s ease,
-          background 0.15s ease, color 0.15s ease;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          background 0.15s ease,
+          color 0.15s ease;
       }
 
       .btn-primary {
@@ -283,7 +300,7 @@
         color: #111;
       }
 
-      /* HERO SIDE CARD ------------------------------------------- */
+      /* HERO SIDE CARD (CALCULATOR STYLED) ----------------------- */
       .hero-right {
         display: flex;
         justify-content: center;
@@ -292,123 +309,137 @@
       .panel-card {
         background: var(--bg-card);
         border-radius: var(--radius-xl);
-        padding: 1.3rem 1.2rem;
+        padding: 1.75rem 1.5rem;
         box-shadow: var(--shadow-card);
         border: 1px solid rgba(0, 0, 0, 0.04);
         width: 100%;
-        max-width: 320px;
+        max-width: 360px; /* Slightly wider for the calc numbers */
         position: relative;
         overflow: hidden;
       }
 
-      .panel-top-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.8rem;
-        font-size: 0.78rem;
+      .calc-header {
+        text-align: left;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-soft);
+        padding-bottom: 0.8rem;
       }
 
-      .panel-pill {
-        background: #f3fff6;
-        color: #166534;
-        border-radius: 999px;
-        padding: 0.2rem 0.7rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.3rem;
+      .calc-note {
+        font-size: 0.7rem; /* Small text */
+        color: var(--text-muted); /* Grey color */
+        margin-top: 1rem; /* Space from the big number */
+        line-height: 1.4; /* Readable spacing */
+        opacity: 0.8; /* Make it slightly subtle */
       }
 
-      .panel-pill-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 999px;
-        background: #22c55e;
-      }
-
-      .panel-label {
-        color: var(--text-muted);
-      }
-
-      .panel-output-title {
+      .calc-title {
         font-size: 0.75rem;
-        color: var(--text-muted);
-      }
-
-      .panel-output-value {
-        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         font-weight: 600;
-        margin-top: 0.15rem;
-        margin-bottom: 0.5rem;
+        color: var(--text-muted);
+        display: inline-block;
       }
 
-      .panel-bars {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.35rem;
-        margin: 0.8rem 0 1rem;
-      }
-
-      .panel-bar {
-        height: 54px;
-        border-radius: 999px;
-        background: linear-gradient(to top, #ececf1, #f9fafb);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .panel-bar-fill {
-        position: absolute;
-        inset-inline: 0.18rem;
-        bottom: 0.18rem;
-        border-radius: inherit;
-        background: linear-gradient(to top, #22c55e, #bef264);
-      }
-
-      .panel-bar:nth-child(1) .panel-bar-fill {
-        height: 80%;
-      }
-      .panel-bar:nth-child(2) .panel-bar-fill {
-        height: 55%;
-      }
-      .panel-bar:nth-child(3) .panel-bar-fill {
-        height: 95%;
-      }
-      .panel-bar:nth-child(4) .panel-bar-fill {
-        height: 70%;
-      }
-
-      .panel-footer {
+      .calc-label-row {
         display: flex;
         justify-content: space-between;
-        font-size: 0.75rem;
-        color: var(--text-muted);
+        align-items: flex-end;
+        margin-bottom: 0.8rem;
       }
 
-      .panel-footer span strong {
+      .calc-label-text {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .calc-value-main {
+        font-size: 1.25rem;
+        font-weight: 700;
         color: #111;
       }
 
-      .panel-orbit {
-        position: absolute;
-        right: -36px;
-        top: -30px;
-        width: 120px;
-        height: 120px;
-        border-radius: 999px;
-        border: 1px dashed rgba(0, 0, 0, 0.08);
+      .range-wrapper {
+        margin-bottom: 2rem;
+        height: 24px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        opacity: 0.9;
       }
 
-      .panel-orbit-inner {
-        width: 70px;
-        height: 70px;
+      /* Custom Range Input (Styled to match Cloud Solar Green) */
+      input[type="range"].custom-range {
+        -webkit-appearance: none;
+        width: 100%;
+        background: transparent;
+        cursor: pointer;
+        border: none; /* Removes the grey box border */
+        padding: 0; /* Removes the internal spacing */
+      }
+      input[type="range"].custom-range:focus {
+        outline: none;
+      }
+      /* Slider Track */
+      input[type="range"].custom-range::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        background: #e0e0e6;
         border-radius: 999px;
-        background: radial-gradient(circle, #fffde7, #ffb400);
-        box-shadow: 0 0 32px rgba(255, 180, 0, 0.8);
+      }
+      /* Slider Thumb */
+      input[type="range"].custom-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background: #111;
+        margin-top: -9px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        border: 2px solid #fff;
+      }
+      /* Firefox Styles */
+      input[type="range"].custom-range::-moz-range-track {
+        width: 100%;
+        height: 6px;
+        background: #e0e0e6;
+        border-radius: 999px;
+        border: none;
+        padding: none;
+      }
+      input[type="range"].custom-range::-moz-range-thumb {
+        height: 24px;
+        width: 24px;
+        border-radius: 5%;
+        background: #111;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      .calc-output {
+        text-align: left;
+      }
+      .calc-savings-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+        display: block;
+      }
+      .calc-savings-number {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: #111;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+      .calc-per-year {
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 400;
+        vertical-align: middle;
+        margin-left: 2px;
       }
 
       /* SECTIONS ------------------------------------------------- */
@@ -509,6 +540,25 @@
         justify-content: center;
       }
 
+      /* REMOVE THIS BLOCK */
+      .logo-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 20%, #fffde7, #ffb400);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+      }
+
+      /* ADD THIS NEW RULE */
+      .logo-img {
+        height: 100px; /* Sets a fixed height for the logo */
+        width: auto; /* Maintains the aspect ratio */
+        display: block; /* Removes potential extra space below the image */
+      }
+
       .chip {
         padding: 0.35rem 0.85rem;
         border-radius: 999px;
@@ -600,8 +650,11 @@
         gap: 0.7rem;
       }
 
+      /* UPDATED CSS BLOCK */
       input,
-      textarea {
+      textarea,
+      select {
+        /* <--- Added 'select' here */
         background: #050608;
         border-radius: 999px;
         border: 1px solid rgba(75, 85, 99, 0.9);
@@ -609,8 +662,22 @@
         font-size: 0.85rem;
         color: #f9fafb;
         outline: none;
-        transition: border-color 0.15s ease, background 0.15s ease,
+        width: 100%; /* Ensures it fills the width */
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease,
           box-shadow 0.15s ease;
+      }
+
+      /* Optional: Fix for the dropdown arrow appearing on dark background */
+      select {
+        appearance: none; /* Removes default system styling */
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 0.65em auto;
+        cursor: pointer;
       }
 
       textarea {
@@ -705,7 +772,8 @@
         backdrop-filter: blur(14px) saturate(160%);
         -webkit-backdrop-filter: blur(14px) saturate(160%);
         border: 1px solid rgba(255, 255, 255, 0.35);
-        box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.7),
+        box-shadow:
+          inset 0 0 2px rgba(255, 255, 255, 0.7),
           0 4px 12px rgba(0, 0, 0, 0.08);
         transition: all 0.25s ease;
         cursor: default;
@@ -714,8 +782,49 @@
       .chip:hover {
         transform: translateY(-3px);
         background: rgba(255, 255, 255, 0.75);
-        box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.8),
+        box-shadow:
+          inset 0 0 4px rgba(255, 255, 255, 0.8),
           0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+      /* PROCESS SECTION IMAGE ------------------------------------ */
+      .process-image-wrapper {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .process-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius-lg); /* Matches your 20px radius */
+        box-shadow: var(--shadow-soft); /* Matches your soft shadow */
+        border: 1px solid rgba(0, 0, 0, 0.04);
+      }
+
+      .process-card-img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px; /* Slightly smaller radius to fit inside card */
+        margin-bottom: 1.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        display: block;
+      }
+
+      .btn-yellow {
+        background: #ffd000 !important; /* !important ensures it overrides the black default */
+        color: #111111 !important;
+        font-weight: 600;
+      }
+
+      .btn-yellow:hover {
+        background: #ffe600 !important;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.35);
+      }
+
+      /* Optional: Update grid gap to give cards more breathing room */
+      .process-grid {
+        gap: 1.5rem;
       }
 
       @keyframes float {
@@ -752,19 +861,25 @@
         .nav-links {
           display: none;
         }
+        .calc-savings-number {
+          font-size: 2.2rem;
+        }
       }
     </style>
   </head>
   <body>
     <div class="page">
-      <!-- NAV -->
       <header class="nav">
         <div class="nav-left">
-          <div class="logo-pill">
-            <div class="logo-icon">☀️</div>
-            <span>Cloud Solar</span>
-          </div>
+          <img
+            src="/Users/sudarshanaravalli/DEV/logo_bg_f3f3f6.png"
+            alt="Cloud Solar Logo"
+            class="logo-img"
+          />
         </div>
+        <span>
+          <h1>Cloud Solar</h1>
+        </span>
         <nav class="nav-links">
           <a href="#about">About</a>
           <a href="#why">How it works</a>
@@ -772,7 +887,6 @@
         </nav>
       </header>
 
-      <!-- HERO -->
       <div class="hero-shell">
         <section class="hero" id="top">
           <div>
@@ -795,7 +909,11 @@
             <div class="hero-actions">
               <button
                 class="btn btn-primary"
-                onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                onclick="
+                  document
+                    .getElementById('contact')
+                    .scrollIntoView({ behavior: 'smooth' })
+                "
               >
                 Get your solar plan →
               </button>
@@ -815,36 +933,42 @@
 
           <div class="hero-right">
             <div class="panel-card">
-              <div class="panel-top-row">
-                <div class="panel-pill">
-                  <span class="panel-pill-dot"></span>
-                  Live preview
+              <div class="calc-header">
+                <div class="calc-title">ROI Calculator</div>
+              </div>
+
+              <div class="calc-label-row">
+                <span class="calc-label-text">Panel Capacity</span>
+                <span class="calc-value-main" id="kw-val">5 kW</span>
+              </div>
+
+              <div class="range-wrapper">
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="5"
+                  id="slider"
+                  class="custom-range"
+                />
+              </div>
+
+              <div class="calc-output">
+                <span class="calc-savings-label">Estimated Savings</span>
+                <div class="calc-savings-number" id="savings-val">
+                  ₹ 60,000 <span class="calc-per-year">/yr</span>
                 </div>
-                <span class="panel-label">Cloud Solar Insights</span>
               </div>
-              <div>
-                <div class="panel-output-title">Estimated daily output</div>
-                <div class="panel-output-value">~ 18.4 kWh</div>
-              </div>
-              <div class="panel-bars">
-                <div class="panel-bar"><div class="panel-bar-fill"></div></div>
-                <div class="panel-bar"><div class="panel-bar-fill"></div></div>
-                <div class="panel-bar"><div class="panel-bar-fill"></div></div>
-                <div class="panel-bar"><div class="panel-bar-fill"></div></div>
-              </div>
-              <div class="panel-footer">
-                <span>Panel health: <strong>Optimal</strong></span>
-                <span>CO₂ saved: <strong>~23 kg / month</strong></span>
-              </div>
-              <div class="panel-orbit">
-                <div class="panel-orbit-inner"></div>
-              </div>
+
+              <p class="calc-note">
+                * Estimation based on 4 hours of daily production average at ₹8
+                per unit.
+              </p>
             </div>
           </div>
         </section>
       </div>
 
-      <!-- ABOUT -->
       <section id="about">
         <div class="section-heading">
           <div class="section-eyebrow">About</div>
@@ -864,7 +988,6 @@
         </div>
       </section>
 
-      <!-- WHY / PROCESS -->
       <section id="why">
         <div class="section-heading">
           <div class="section-eyebrow">Our Process, Explained</div>
@@ -875,6 +998,25 @@
           </p>
         </div>
 
+        <div class="process-grid">
+          <img
+            src="/Users/sudarshanaravalli/DEV/IMG_3722.png"
+            alt="Planning and blueprinting solar installation"
+            class="process-card-img"
+          />
+
+          <img
+            src="/Users/sudarshanaravalli/DEV/IMG_6427.png"
+            alt="Design approval and cost savings analysis"
+            class="process-card-img"
+          />
+
+          <img
+            src="/Users/sudarshanaravalli/DEV/IMG_4800.png"
+            alt="Solar panel installation and app monitoring"
+            class="process-card-img"
+          />
+        </div>
         <div class="process-grid">
           <div class="process-card">
             <div class="process-number">1</div>
@@ -923,11 +1065,10 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
-       <div class="section-heading">
-          <div class="section-eyebrow">Interested? </div>
-          <h2 class="section-title">Get in touch with us </h2>
-        </div>
+      <div class="section-heading">
+        <div class="section-eyebrow">Interested?</div>
+        <h2 class="section-title">Get in touch with us</h2>
+      </div>
       <section id="contact">
         <div class="contact-shell">
           <div>
@@ -939,9 +1080,14 @@
             </p>
             <div class="contact-location">
               <span class="location-dot"></span>
-              <span
-                >Based in Bidar, Karnataka · Serving surrounding regions</span
-              >
+              <span>
+                <a
+                  href="https://maps.app.goo.gl/AYWkCUaF5aHZRJsf8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Based in Bidar, Karnataka · Serving surrounding regions</a
+                >
+              </span>
             </div>
           </div>
 
@@ -951,7 +1097,6 @@
               Fill out this short form and we’ll follow up by email or phone.
             </p>
 
-            <!-- Replace action with your actual Formspree endpoint -->
             <form
               id="contact-form"
               action="https://formspree.io/f/xanlgdbd"
@@ -965,6 +1110,37 @@
                 placeholder="Contact Number *"
                 required
               />
+              <select name="state" required>
+                <option value="" disabled selected>Select your State *</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
               <textarea
                 name="message"
                 placeholder="Tell us about your home, roof, or solar idea..."
@@ -981,7 +1157,10 @@
                 value="cloud2539@gmail.com"
               />
 
-              <button type="submit" class="btn btn-primary btn-block">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block btn-yellow"
+              >
                 Submit enquiry
               </button>
 
@@ -991,7 +1170,6 @@
         </div>
       </section>
 
-      <!-- FOOTER -->
       <footer>
         <span
           >A Proud Initiative, brought to you by
@@ -1006,9 +1184,9 @@
 
     <script>
       // Dynamic year
-      document.getElementById("year").textContent = new Date().getFullYear();
+      // document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Formspree AJAX handling (optional but nicer UX)
+      // Formspree AJAX handling
       const form = document.getElementById("contact-form");
       const statusEl = document.getElementById("form-status");
 
@@ -1041,6 +1219,33 @@
             statusEl.classList.add("error");
           }
         });
+      }
+
+      /* --- ROI CALCULATOR LOGIC --- */
+      const slider = document.getElementById("slider");
+      const kwVal = document.getElementById("kw-val");
+      const savingsVal = document.getElementById("savings-val");
+      const RATE = 12000;
+
+      if (slider && kwVal && savingsVal) {
+        function updateCalc() {
+          const capacity = slider.value;
+          const savings = capacity * RATE;
+
+          // Update Capacity Display
+          kwVal.textContent = `${capacity} kW`;
+
+          // Update Savings with Indian Comma formatting
+          savingsVal.innerHTML = `~ ₹ ${savings.toLocaleString("en-IN")} <span class="calc-per-year">/yr</span>`;
+
+          // Optional: Update slider background fill to match accent color
+          const percent =
+            ((capacity - slider.min) / (slider.max - slider.min)) * 100;
+        }
+
+        // Initialize
+        slider.addEventListener("input", updateCalc);
+        updateCalc(); // Run once on load
       }
     </script>
   </body>
