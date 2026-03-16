@@ -150,16 +150,17 @@
             padding: 0.75rem 1.25rem;
             margin-left: -1.25rem;
             margin-right: -1.25rem;
-            border-radius: 10px;
         }
 
         .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            border-radius: 10px;
-            padding: 5px 10px;
+            width: 96px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.93);
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+            flex-shrink: 0;
+            padding: 0;
         }
 
         .logo-pill {
@@ -188,8 +189,10 @@
         }
 
         .logo-img {
-            height: 38px;
-            width: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 38%;
             display: block;
         }
 
@@ -581,6 +584,17 @@
             pointer-events: none;
         }
 
+        .about-main-img {
+            width: 100%;
+            max-width: 760px;
+            height: auto;
+            border-radius: var(--radius-lg);
+            display: block;
+            margin: 1.5rem auto 0;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-card);
+        }
+
         /* WHY / PROCESS -------------------------------------------- */
         .process-grid {
             margin-top: 0.5rem;
@@ -678,36 +692,43 @@
             margin-top: 2.5rem;
         }
 
-        /* GLASS STYLE CHIPS (dark glassmorphic) */
+        /* WHY US image cards */
         .whyus-chips {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 1rem;
             margin-top: 2rem;
         }
 
         .chip {
-            padding: 0.65rem 1.3rem;
-            border-radius: var(--radius-full);
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(14px) saturate(160%);
-            -webkit-backdrop-filter: blur(14px) saturate(160%);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.25);
-            transition: all 0.25s ease;
+            padding: 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
             cursor: default;
+            font-size: inherit;
+            font-weight: inherit;
+            color: inherit;
+        }
+
+        .chip img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--radius-lg);
         }
 
         .chip:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.10);
-            box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.15),
-                        0 8px 24px rgba(0, 0, 0, 0.3),
-                        0 0 16px rgba(253, 184, 19, 0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5),
+                        0 0 28px rgba(253, 184, 19, 0.15);
+            border-color: rgba(253, 184, 19, 0.25);
         }
 
         /* CONTACT -------------------------------------------------- */
@@ -924,21 +945,29 @@
             .contact-shell {
                 grid-template-columns: minmax(0, 1fr);
             }
+
+            .whyus-chips {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50%       { transform: translateY(-3px); }
+            50%       { transform: translateY(-4px); }
         }
 
         .chip:nth-child(odd) {
-            animation: float 6s ease-in-out infinite;
+            animation: float 7s ease-in-out infinite;
         }
 
         .chip:nth-child(even) {
-            animation: float 6s ease-in-out infinite;
-            animation-delay: 2s;
+            animation: float 7s ease-in-out infinite;
+            animation-delay: 2.5s;
         }
+
+        .chip:nth-child(3) { animation-delay: 1.2s; }
+        .chip:nth-child(4) { animation-delay: 3.5s; }
+        .chip:nth-child(5) { animation-delay: 0.8s; }
 
         @media (max-width: 640px) {
             .page {
@@ -963,6 +992,10 @@
 
             .calc-savings-number {
                 font-size: 2.2rem;
+            }
+
+            .whyus-chips {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             /* Reduce ambient blob size on mobile */
@@ -1094,6 +1127,7 @@
                 that will bypass all the A–Z hassles of installing a solar energy
                 source over your ceiling.
             </div>
+            <img src="../IMAGES/CS MAIN IMG.png" alt="Cloud Solar — Built for every family, every industry" class="about-main-img">
         </section>
 
         <hr>
@@ -1109,11 +1143,11 @@
             </div>
 
             <div class="process-grid">
-                <img src="Discover & Plan.png" alt="Planning and blueprinting solar installation" class="process-card-img">
+                <img src="IMG_3722.png" alt="Planning and blueprinting solar installation" class="process-card-img">
 
-                <img src="Design & Approve.png" alt="Design approval and cost savings analysis" class="process-card-img">
+                <img src="IMG_6427.png" alt="Design approval and cost savings analysis" class="process-card-img">
 
-                <img src="Install & Monitor.png" alt="Solar panel installation and app monitoring" class="process-card-img">
+                <img src="IMG_4800.png" alt="Solar panel installation and app monitoring" class="process-card-img">
             </div>
             <div class="process-grid">
                 <div class="process-card">
@@ -1154,11 +1188,11 @@
                 </div>
 
                 <div class="whyus-chips">
-                    <div class="chip">High-Efficiency Panels</div>
-                    <div class="chip">Affordable Installation</div>
-                    <div class="chip">Smart Energy Monitoring</div>
-                    <div class="chip">Sustainable Technology</div>
-                    <div class="chip">Reliable Support</div>
+                    <div class="chip"><img src="../IMAGES/HIGH_EFF.png" alt="High-Efficiency Panels"></div>
+                    <div class="chip"><img src="../IMAGES/AFFORDABLE_INSTALLATION.png" alt="Affordable Installation"></div>
+                    <div class="chip"><img src="../IMAGES/SMART_MONITORING.png" alt="Smart Energy Monitoring"></div>
+                    <div class="chip"><img src="../IMAGES/SUSTAINABLE_TECH.png" alt="Sustainable Technology"></div>
+                    <div class="chip"><img src="../IMAGES/RELIABLE_SUPPORT.png" alt="Reliable Support"></div>
                 </div>
             </div>
         </section>
