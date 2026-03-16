@@ -10,9 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -117,8 +115,13 @@
         }
 
         @keyframes blobDrift {
-            from { transform: translate(0, 0); }
-            to   { transform: translate(30px, 20px); }
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(30px, 20px);
+            }
         }
 
         a {
@@ -150,12 +153,12 @@
             padding: 0.75rem 1.25rem;
             margin-left: -1.25rem;
             margin-right: -1.25rem;
+            border-radius: 10px;
         }
 
         .nav-left {
             width: 96px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.93);
+            height: 65px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
@@ -233,7 +236,9 @@
         .hero-shell::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: var(--inner-highlight);
             pointer-events: none;
@@ -383,7 +388,9 @@
         .panel-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: var(--inner-highlight);
             border-radius: var(--radius-xl) var(--radius-xl) 0 0;
@@ -559,8 +566,8 @@
 
         /* ABOUT ---------------------------------------------------- */
         .about-card {
-            max-width: 760px;
-            margin: 0 auto;
+            max-width: max-content;
+            margin: 10px;
             background: var(--surface);
             border-radius: var(--radius-lg);
             padding: 1.5rem 1.75rem;
@@ -578,7 +585,9 @@
         .about-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: var(--inner-highlight);
             pointer-events: none;
@@ -586,11 +595,11 @@
 
         .about-main-img {
             width: 100%;
-            max-width: 760px;
+            max-width: max-content;
             height: auto;
             border-radius: var(--radius-lg);
             display: block;
-            margin: 1.5rem auto 0;
+            margin: 10px;
             border: 1px solid var(--border);
             box-shadow: var(--shadow-card);
         }
@@ -618,7 +627,9 @@
         .process-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: var(--inner-highlight);
             pointer-events: none;
@@ -727,7 +738,7 @@
         .chip:hover {
             transform: translateY(-6px);
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5),
-                        0 0 28px rgba(253, 184, 19, 0.15);
+                0 0 28px rgba(253, 184, 19, 0.15);
             border-color: rgba(253, 184, 19, 0.25);
         }
 
@@ -746,15 +757,80 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            transition: background 0.7s ease, border-color 0.7s ease, box-shadow 0.7s ease;
         }
 
         .contact-shell::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: var(--inner-highlight);
             pointer-events: none;
+            transition: background 0.7s ease;
+        }
+
+        /* === SUCCESS STATE === */
+        .contact-shell.enquiry-sent {
+            background: #FDB813;
+            border-color: #FDB813;
+            box-shadow: 0 8px 48px rgba(253, 184, 19, 0.55), 0 0 80px rgba(253, 184, 19, 0.2);
+            grid-template-columns: minmax(0, 1fr);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .contact-shell.enquiry-sent::before {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .contact-success-message {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            max-width: 640px;
+        }
+
+        .contact-success-message h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: #07090B;
+            margin-bottom: 0.85rem;
+        }
+
+        .contact-success-message h2 {
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: rgba(7, 9, 11, 0.72);
+        }
+
+        /* blinking cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: #07090B;
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: cursorBlink 0.75s step-end infinite;
+        }
+
+        @keyframes cursorBlink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         .contact-copy-eyebrow {
@@ -822,7 +898,9 @@
         .contact-form-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: var(--inner-highlight);
             pointer-events: none;
@@ -952,8 +1030,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50%       { transform: translateY(-4px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
         }
 
         .chip:nth-child(odd) {
@@ -965,9 +1050,17 @@
             animation-delay: 2.5s;
         }
 
-        .chip:nth-child(3) { animation-delay: 1.2s; }
-        .chip:nth-child(4) { animation-delay: 3.5s; }
-        .chip:nth-child(5) { animation-delay: 0.8s; }
+        .chip:nth-child(3) {
+            animation-delay: 1.2s;
+        }
+
+        .chip:nth-child(4) {
+            animation-delay: 3.5s;
+        }
+
+        .chip:nth-child(5) {
+            animation-delay: 0.8s;
+        }
 
         @media (max-width: 640px) {
             .page {
@@ -1005,6 +1098,7 @@
                 top: -100px;
                 left: -80px;
             }
+
             body::after {
                 width: 250px;
                 height: 250px;
@@ -1014,10 +1108,15 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            body::before, body::after,
-            .chip, .chip:nth-child(odd), .chip:nth-child(even) {
+
+            body::before,
+            body::after,
+            .chip,
+            .chip:nth-child(odd),
+            .chip:nth-child(even) {
                 animation: none;
             }
+
             .btn {
                 transition: none;
             }
@@ -1119,6 +1218,8 @@
                     you can enjoy the benefits.
                 </p>
             </div>
+            <img src="CS MAIN IMG.png" alt="Cloud Solar — Built for every family, every industry"
+                class="about-main-img">
             <div class="about-card">
                 Cloud Solar is dedicated to making renewable energy accessible for
                 everyone. We believe solar energy should be simple, affordable, and
@@ -1127,7 +1228,6 @@
                 that will bypass all the A–Z hassles of installing a solar energy
                 source over your ceiling.
             </div>
-            <img src="../IMAGES/CS MAIN IMG.png" alt="Cloud Solar — Built for every family, every industry" class="about-main-img">
         </section>
 
         <hr>
@@ -1143,11 +1243,14 @@
             </div>
 
             <div class="process-grid">
-                <img src="IMG_3722.png" alt="Planning and blueprinting solar installation" class="process-card-img">
+                <img src="Discover & Plan.png" alt="Planning and blueprinting solar installation"
+                    class="process-card-img">
 
-                <img src="IMG_6427.png" alt="Design approval and cost savings analysis" class="process-card-img">
+                <img src="Design & Approve.png" alt="Design approval and cost savings analysis"
+                    class="process-card-img">
 
-                <img src="IMG_4800.png" alt="Solar panel installation and app monitoring" class="process-card-img">
+                <img src="Install & Monitor.png" alt="Solar panel installation and app monitoring"
+                    class="process-card-img">
             </div>
             <div class="process-grid">
                 <div class="process-card">
@@ -1188,11 +1291,12 @@
                 </div>
 
                 <div class="whyus-chips">
-                    <div class="chip"><img src="../IMAGES/HIGH_EFF.png" alt="High-Efficiency Panels"></div>
-                    <div class="chip"><img src="../IMAGES/AFFORDABLE_INSTALLATION.png" alt="Affordable Installation"></div>
-                    <div class="chip"><img src="../IMAGES/SMART_MONITORING.png" alt="Smart Energy Monitoring"></div>
-                    <div class="chip"><img src="../IMAGES/SUSTAINABLE_TECH.png" alt="Sustainable Technology"></div>
-                    <div class="chip"><img src="../IMAGES/RELIABLE_SUPPORT.png" alt="Reliable Support"></div>
+                    <div class="chip"><img src="HIGH_EFF.png" alt="High-Efficiency Panels"></div>
+                    <div class="chip"><img src="AFFORDABLE_INSTALLATION.png" alt="Affordable Installation">
+                    </div>
+                    <div class="chip"><img src="SMART_MONITORING.png" alt="Smart Energy Monitoring"></div>
+                    <div class="chip"><img src="SUSTAINABLE_TECH.png" alt="Sustainable Technology"></div>
+                    <div class="chip"><img src="RELIABLE_SUPPORT.png" alt="Reliable Support"></div>
                 </div>
             </div>
         </section>
@@ -1308,9 +1412,8 @@
                     });
 
                     if (response.ok) {
-                        statusEl.textContent = "Thank you! Your enquiry has been sent.";
-                        statusEl.classList.add("success");
                         form.reset();
+                        triggerSuccessState();
                     } else {
                         statusEl.textContent =
                             "Something went wrong. Please try again in a moment.";
@@ -1322,6 +1425,61 @@
                     statusEl.classList.add("error");
                 }
             });
+        }
+
+        /* --- FORM SUCCESS ANIMATION --- */
+        function triggerSuccessState() {
+            const shell = document.querySelector('.contact-shell');
+            if (!shell) return;
+
+            const h1Text = "Congratulations on taking a step towards a cleaner, brighter future.";
+            const h2Text = "A CloudSolar executive will reach out to you shortly with a personalised solar plan.";
+
+            // Build the success message container (hidden, no cursor yet)
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'contact-success-message';
+            msgDiv.innerHTML = '<h1></h1><h2></h2>';
+            const h1El = msgDiv.querySelector('h1');
+            const h2El = msgDiv.querySelector('h2');
+
+            // Fade out existing children
+            Array.from(shell.children).forEach(child => {
+                child.style.transition = 'opacity 0.35s ease';
+                child.style.opacity = '0';
+                child.style.pointerEvents = 'none';
+            });
+
+            setTimeout(() => {
+                // Remove old children, light up the card
+                shell.innerHTML = '';
+                shell.appendChild(msgDiv);
+                shell.classList.add('enquiry-sent');
+
+                // Typewriter: h1 first, then h2
+                typeWriter(h1El, h1Text, 28, () => {
+                    // small pause before h2 starts
+                    setTimeout(() => typeWriter(h2El, h2Text, 22, null), 300);
+                });
+            }, 380);
+        }
+
+        function typeWriter(el, text, speed, onDone) {
+            let i = 0;
+            const cursor = document.createElement('span');
+            cursor.className = 'typewriter-cursor';
+            el.appendChild(cursor);
+
+            const tick = () => {
+                if (i < text.length) {
+                    el.insertBefore(document.createTextNode(text[i]), cursor);
+                    i++;
+                    setTimeout(tick, speed);
+                } else {
+                    cursor.remove();
+                    if (onDone) onDone();
+                }
+            };
+            tick();
         }
 
         /* --- ROI CALCULATOR LOGIC --- */
